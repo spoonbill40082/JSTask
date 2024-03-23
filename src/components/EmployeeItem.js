@@ -61,11 +61,5 @@ export default class EmployeeItem extends Component {
     function isEmpty(obj) {
       return Object.keys(obj).length === 0;
     }
-
-
   }
 }
-
-
-// 로컬 스토리지나 json 데이터 파일에 빈 데이터가 있으면 그것은
-// 브라우저에 출력해서는 안 된다.

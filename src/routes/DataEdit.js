@@ -91,8 +91,6 @@ export default class DataEdit extends Component {
           }
 
         });
-
-
         
         // 삭제 후 첫 페이지로
         document.getElementById('deleteBtn').addEventListener('click', () => {
@@ -100,7 +98,9 @@ export default class DataEdit extends Component {
             dbService.deleteById(employeeData.Id);
             alert('삭제되었습니다.');
             window.location.href = '#/';
-            location.reload();
+            setTimeout(() => {
+              window.location.reload()
+            }, 1);
           }
         });
 

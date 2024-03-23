@@ -22,7 +22,7 @@ export const dbService = {
     if (!rawDb) throw Error("db data is not exists");
     return JSON.parse(rawDb);
   },
-  add: (movie) => {
+  addData: (movie) => {
     const movies = dbService.getAll();
     const movieItem = { ...movie, Id: `em${movies[movies.length + 1]}` }
     const newMovies = movies.concat(movieItem);

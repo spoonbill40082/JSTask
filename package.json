@@ -1,5 +1,5 @@
 {
-  "name": "movie-app",
+  "name": "employee-app",
   "version": "1.0.0",
   "scripts": {
     "dev": "parcel ./index.html",
@@ -12,7 +12,7 @@
   "devDependencies": {
     "dotenv": "^16.4.5",
     "parcel": "^2.12.0",
-    "vercel": "^33.6.0"
+    "vercel": "^33.6.1"
   },
   "dependencies": {
     "node-fetch": "^2.7.0"

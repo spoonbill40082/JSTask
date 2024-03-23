@@ -184,6 +184,11 @@ html {
   text-decoration: none;
 }
 
+.sand header nav ul li:last-child a {  
+  background-color: var(--color-white-30);
+  color: var(--color-white-50);
+}
+
 .sand header nav ul li a.active {
   color: var(--color-black);
 }

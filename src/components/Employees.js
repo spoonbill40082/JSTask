@@ -34,9 +34,8 @@ export default class Employees extends Component {
     }
 
     const noSearch = employeeData.state.searchText.trim() === '';
-
     if (noSearch) {
-      divEl.append(...employeeData.state.employees        
+      divEl.append(...employeeData.state.employees
         .map(data => new EmployeeItem({
           props: {
             photo: data.Photo,
@@ -54,7 +53,7 @@ export default class Employees extends Component {
     }
 
     const searchList = dbService.searchMovies(employeeData.state.searchText);
-    divEl.append(...searchList       
+    divEl.append(...searchList
       .map(data => new EmployeeItem({
         props: {
           photo: data.Photo,
@@ -68,5 +67,6 @@ export default class Employees extends Component {
       }).el
       )
     );
+
   }
 }

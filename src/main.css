@@ -52,7 +52,7 @@ body {
 .employee.category {
   display: flex;
   border-top: 1px solid var(--color-white-20);
-  border-bottom: 1px solid var(--color-white-20);  
+  border-bottom: 1px solid var(--color-white-20);
   padding: 10px 0;
   font-weight: 700;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 /* 체크박스 영역 */
-input {  
+input {
   accent-color: var(--color-hover);
 }
 
@@ -249,13 +249,13 @@ input {
 
 .the-employee .edit-btn {
   display: flex;
-  justify-content: end;  
+  justify-content: end;
 }
 
 .edit-btn a {
   text-decoration: none;
   width: 65px;
-  height: 28px;  
+  height: 28px;
   background-color: var(--color-area);
   border: 1px solid var(--color-white-50);
   color: var(--color-white-50);
@@ -580,6 +580,7 @@ header .logo span {
 
 header nav ul {
   display: flex;
+  align-items: center;
   gap: 14px;
 }
 
@@ -588,6 +589,20 @@ header nav ul li a {
   font-weight: 500;
   color: var(--color-white-50);
   text-decoration: none;
+}
+
+header nav ul li:last-child a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 45px;
+  padding-bottom: 5px;  
+  font-size: 2rem;
+  border-radius: 10px;
+  background-color: var(--color-white-30);
+  box-sizing: border-box;
+  color: var(--color-area);
 }
 
 header nav ul li a.active {
