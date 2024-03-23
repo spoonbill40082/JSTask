@@ -31,23 +31,36 @@ export default class DataEdit extends Component {
         // 화면에 사원 정보를 출력합니다.
         this.el.innerHTML = /*html*/ `
           <div class="employee-info edit-title">Edit Profile</div>
-          <div class="employee-info edit">
-            <div class="photo" style="background-image: url(${employeeData.Photo})"></div>
-            <div class="specs edit">
-              <div class="name edit">${savedData.Name || employeeData.Name}
+          <div class="edit-area">
+
+            <div class="write-area">    
+              <div class="edit-subtitle">Edit</div>
+              <div class="inputs">
+                <input type="text" value="${savedData.Photo || employeeData.Photo}" id="photoInput">
                 <input type="text" value="${savedData.Name || employeeData.Name}" id="nameInput">
-              </div>
-              <div class="family edit">${savedData.Family || employeeData.Family}
-                <input type="text" value="${savedData.Family || employeeData.Family}" id="familyInput">
-              </div>
-              <div class="planet edit">${savedData.Planet || employeeData.Planet} / ${savedData.Division || employeeData.Division}
-                <input type="text" value="${savedData.Planet || employeeData.Planet}" id="planetInput">&nbsp
-                /&nbsp<input type="text" value="${savedData.Division || employeeData.Division}" id="divisionInput">
-              </div>
-              <div class="overview edit">${savedData.Overview || employeeData.Overview}
+                <input type="text" value="${savedData.Planet || employeeData.Planet}" id="planetInput">
+                <input type="text" value="${savedData.Division || employeeData.Division}" id="divisionInput">
+                <input type="text" value="${savedData.Family || employeeData.Family}" id="familyInput">          
                 <input type="text" value="${savedData.Overview || employeeData.Overview}" id="overviewInput">
               </div>
             </div>
+          
+            <div class="result-area">
+              <div class="edit-subtitle">Result</div>
+              <div class="results">
+                <div class="specs">
+                  <div class="photo" style="background-image: url(${employeeData.Photo})"></div>
+                    <div class="specs-text">
+                      <div class="name">${savedData.Name || employeeData.Name}</div>
+                      <div class="family">${savedData.Family || employeeData.Family}</div>
+                      <div class="planet">${savedData.Planet || employeeData.Planet}
+                        &nbsp/&nbsp${savedData.Division || employeeData.Division}</div>
+                    </div>
+                </div>
+                <div class="overview">${savedData.Overview || employeeData.Overview}</div>
+              </div>
+            </div>
+            
           </div>
           <div class="btn-area">
             <div class="delete-area">
@@ -91,7 +104,7 @@ export default class DataEdit extends Component {
           }
 
         });
-        
+
         // 삭제 후 첫 페이지로
         document.getElementById('deleteBtn').addEventListener('click', () => {
           if (confirm('정말로 삭제하시겠습니까?')) {

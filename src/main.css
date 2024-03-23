@@ -300,6 +300,70 @@ input {
   margin-bottom: 40px;
 }
 
+.edit-subtitle {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.edit-area {
+  display: flex;
+  background-color: rosybrown;    
+}
+
+.edit-area .write-area {
+  background-color: blueviolet;
+  position: relative;
+  padding-right: 12px;
+  width: 100%;
+}
+
+.edit-area .write-area::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: -25px;
+  top: 0;
+  border: 1px solid var(--color-white-10);
+}
+
+/* .inputs {
+  display: flex;
+  
+} */
+
+.edit-area .write-area input {
+  width: 100%;
+  background-color: orange;
+  font-size: 1em;
+  margin-bottom: 15px;
+  padding: 7px;
+  border: none;
+  border-radius: 3px;
+
+}
+
+.edit-area .write-area input:last-child {
+  height: 100%;
+}
+
+.edit-area .result-area {
+  background-color: brown;
+  margin-left: 50px;  
+  width: 100%;
+}
+
+.edit-area .result-area .results .specs {
+  display: flex;
+}
+
+.edit-area .result-area .specs .photo {
+  --width: 190px;
+  width: var(--width);
+  height: calc(var(--width) * 5 / 4);
+  margin-right: 30px;
+}
+
+
 .btn-area {
   display: flex;
   justify-content: space-between;
@@ -597,7 +661,7 @@ header nav ul li:last-child a {
   justify-content: center;
   height: 20px;
   width: 45px;
-  padding-bottom: 5px;  
+  padding-bottom: 5px;
   font-size: 2rem;
   border-radius: 10px;
   background-color: var(--color-white-30);

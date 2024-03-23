@@ -2,15 +2,15 @@ import { Store } from "../core/JStestCore";
 import employeeData from "./employeeData.json";
 
 
-  /**
-   * @desecription 데이터베이스에 데이터가 존재하지 않으면 최초 제이슨 파일로부터 데이터를 초기화한다.
-   * @data employeeData.json
-   */
-  const initialize = () => {
-    const db = localStorage.getItem("data");
-    if (db) return;
-    localStorage.setItem("data", JSON.stringify(employeeData));
-  };
+/**
+ * @desecription 데이터베이스에 데이터가 존재하지 않으면 최초 제이슨 파일로부터 데이터를 초기화한다.
+ * @data employeeData.json
+ */
+const initialize = () => {
+  const db = localStorage.getItem("data");
+  if (db) return;
+  localStorage.setItem("data", JSON.stringify(employeeData));
+};
 
 /**
  * @description 로컬스토리지 데이터를 제어하는 유틸리티
@@ -86,28 +86,36 @@ export default store;
 export const searchEmployees = () => {
   store.state.loading = true;
 
-  const callback = () => {
-    if (!employeeData) {
-      throw new Error('Employee data not found.');
+  const callback = async () => {
+    try {
+      if (!employeeData) {
+        throw new Error('Employee data not found.');
+      }
+      initialize();
+      const searchKeyword = store.state.searchText;
+      const noSearch = searchKeyword.trim() === '';
+      let searchResult;
+      if (!noSearch) {
+        searchResult = await dbService.searchMovies(searchKeyword);
+      } else {
+        searchResult = await dbService.getAll();
+      }
+
+      // 검색 결과를 employeeData에 설정
+      employeeData.state.employees = searchResult;
+
+      // 로딩 상태 변경
+      store.state.loading = false;
+    } catch (error) {
+      console.log('searchEmployees error:', error);
+      store.state.message = 'Error';
+      store.state.loading = false;
     }
-    initialize();
-    const searchKeyword = store.state.searchText;
-    const noSearch = searchKeyword.trim() === '';
-    if (!noSearch) {
-      return dbService.searchMovies(searchKeyword);
-    }
-    return dbService.getAll();
   };
 
-  try {
-    setTimeout(callback, 1000);
-  } catch (error) {
-    console.log('searchEmployees error:', error);
-    store.state.message = 'Error';
-  } finally {
-    store.state.loading = false;
-  }
+  setTimeout(callback, 1000);
 };
+
 
 // 사원 세부 정보 가져오는 함수
 export const getEmployeeDetail = id => {

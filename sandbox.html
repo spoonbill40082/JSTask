@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  
+  <div class="employee-info edit-title">Edit Profile</div>
+
+  <div class="employee-info edit-area">
+    <div class="employee-info edit-subtitle">Result</div>
+    <div class="resultArea">
+      <div class="photo" style="background-image: url(${employeeData.Photo})"></div>
+      <div class="specs">
+        <div class="name">${savedData.Name || employeeData.Name}</div>
+        <div class="family">${savedData.Family || employeeData.Family}</div>
+        <div class="planet">${savedData.Planet || employeeData.Planet}
+          &nbsp/&nbsp${savedData.Division || employeeData.Division}</div>
+        <div class="overview">${savedData.Overview || employeeData.Overview}</div>
+      </div>
+    </div>
+  </div>
+  <div class="employee-info edit-area">
+    <div class="employee-info edit-subtitle">Edit</div>
+    <div class="inputArea">
+      <input type="text" value="${savedData.Photo || employeeData.Photo}" id="nameInput">
+      <input type="text" value="${savedData.Name || employeeData.Name}" id="nameInput">
+      <input type="text" value="${savedData.Planet || employeeData.Planet}" id="planetInput">
+      <input type="text" value="${savedData.Division || employeeData.Division}" id="divisionInput">
+      <input type="text" value="${savedData.Family || employeeData.Family}" id="familyInput">
+      <input type="text" value="${savedData.Overview || employeeData.Overview}" id="overviewInput">
+    </div>
+  </div>
+  <div class="btn-area">
+    <div class="delete-area">
+      <button class="delete" id="deleteBtn">Delete</button>
+    </div>
+    <div class="submit-and-reset-area">
+      <button type="submit" class="reset" id="submitBtn">Submit</button>
+      <button type="reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
