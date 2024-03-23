@@ -12,10 +12,7 @@ export default class DataEdit extends Component {
 
     this.el.innerHTML = /*html*/ `
       <div class="employee-info edit-title">Edit Profile</div>
-      <div class="photo skeleton">
-        <div class="in-skeleton"></div>   
-      </div>
-      <div class="specs skeleton"></div>
+      <div class="edit-area skeleton"></div>        
     `;
 
     // getEmployeeDetail 함수를 호출하고 데이터를 기다림
@@ -36,12 +33,12 @@ export default class DataEdit extends Component {
             <div class="write-area">    
               <div class="edit-subtitle">Edit</div>
               <div class="inputs">
-                <input type="text" value="${savedData.Photo || employeeData.Photo}" id="photoInput">
-                <input type="text" value="${savedData.Name || employeeData.Name}" id="nameInput">
-                <input type="text" value="${savedData.Planet || employeeData.Planet}" id="planetInput">
-                <input type="text" value="${savedData.Division || employeeData.Division}" id="divisionInput">
-                <input type="text" value="${savedData.Family || employeeData.Family}" id="familyInput">          
-                <input type="text" value="${savedData.Overview || employeeData.Overview}" id="overviewInput">
+                <textarea id="photoInput">${savedData.Photo || employeeData.Photo}</textarea>
+                <textarea id="nameInput">${savedData.Name || employeeData.Name}</textarea>
+                <textarea id="familyInput">${savedData.Family || employeeData.Family}</textarea>
+                <textarea id="planetInput">${savedData.Planet || employeeData.Planet}</textarea>
+                <textarea id="divisionInput">${savedData.Division || employeeData.Division}</textarea>
+                <textarea id="overviewInput">${savedData.Overview || employeeData.Overview}</textarea>
               </div>
             </div>
           
@@ -73,6 +70,8 @@ export default class DataEdit extends Component {
           </div>
         `;
 
+
+
         // 입력된 내용을 임시 저장하는 함수
         const saveNewData = () => {
           this.tempData = {
@@ -86,8 +85,28 @@ export default class DataEdit extends Component {
           };
         };
 
+        // textarea 높이 자동 조절
+        // textarea 요소의 높이를 자동으로 조절하는 함수
+        function autoHeight(textarea) {
+          textarea.style.height = 'auto'; // 기본 높이로 설정
+          textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
+        }
+
+        // 모든 textarea 요소에 대해 자동 높이 조절 이벤트를 추가
+        const textareas = document.querySelectorAll('#photoInput, #overviewInput');
+        textareas.forEach(textarea => {
+          textarea.addEventListener('input', () => {
+            autoHeight(textarea);
+          });
+        });
+
+        // 초기화할 때 모든 textarea에 대해 높이를 조절
+        textareas.forEach(textarea => {
+          autoHeight(textarea);
+        });
+
         // input 요소에 change 이벤트 추가하여 내용이 변경될 때마다 임시 데이터 저장
-        const changeData = document.querySelectorAll('input[type="text"]');
+        const changeData = document.querySelectorAll('input[type="text"], textarea');
         changeData.forEach(changeData => {
           changeData.addEventListener('change', saveNewData);
         });

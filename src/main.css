@@ -302,19 +302,18 @@ input {
 
 .edit-subtitle {
   font-size: 2em;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .edit-area {
   display: flex;
-  background-color: rosybrown;    
+  margin-bottom: 40px;
 }
 
 .edit-area .write-area {
-  background-color: blueviolet;
   position: relative;
-  padding-right: 12px;
   width: 100%;
+  /* background-color: orchid; */
 }
 
 .edit-area .write-area::after {
@@ -326,41 +325,57 @@ input {
   border: 1px solid var(--color-white-10);
 }
 
-/* .inputs {
-  display: flex;
-  
-} */
 
-.edit-area .write-area input {
+.edit-area .write-area textarea {
+  display: block;
+  color: var(--color-white-50);
   width: 100%;
-  background-color: orange;
+  height: 25px;
+  padding: 5px 0 5px 7px;
+  background-color: transparent;
   font-size: 1em;
+  line-height: 1.4;
   margin-bottom: 15px;
-  padding: 7px;
+  resize: none;
   border: none;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-white-20);
   border-radius: 3px;
-
-}
-
-.edit-area .write-area input:last-child {
-  height: 100%;
+  font-family: sans-serif;
 }
 
 .edit-area .result-area {
-  background-color: brown;
-  margin-left: 50px;  
+  /* background-color: brown; */
+  margin-left: 50px;
   width: 100%;
 }
 
 .edit-area .result-area .results .specs {
   display: flex;
+  margin-bottom: 30px;
 }
 
 .edit-area .result-area .specs .photo {
-  --width: 190px;
+  --width: 170px;
   width: var(--width);
   height: calc(var(--width) * 5 / 4);
-  margin-right: 30px;
+  margin-right: 25px;
+}
+
+
+.edit-area .result-area .specs .name {
+  margin-bottom: 30px;
+  font-size: 3rem;
+}
+
+.edit-area .result-area .specs .family {
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+.edit-area .result-area .specs .planet {
+  margin-bottom: 0;
+  font-size: 2rem;
 }
 
 
@@ -399,7 +414,7 @@ input {
 
 .btn-area .submit-and-reset-area button:hover {
   background-color: var(--color-white-50);
-  border: 1px solid var(--color-white-50);
+  border: 1px solid transparent;
   color: var(--color-black);
 }
 
