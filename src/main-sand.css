@@ -1,0 +1,259 @@
+html {
+  --color-black: #0e111b;
+  --color-white: #ffffff;
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-primary: #f4a460;
+  --color-primary-dark: #a46e3f;
+  --color-hover: #808080;
+  --color-area: #1c212e;
+  /* --color-color: blanchedalmond; */
+  /* --color-color: burlywood; */
+}
+
+/*            다크모드 CSS             */
+
+.sand {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+
+.sand #darkOrSandy {
+  background-color: var(--color-area);
+  color: var(--color-primary);
+}
+
+.sand .employee.category {
+  border-top: 1px solid var(--color-area);
+  border-bottom: 1px solid var(--color-area);
+}
+
+.sand .category ul li {
+  border-left: 1px solid var(--color-area);
+}
+
+.sand .employee-single {
+  border-bottom: 1px solid var(--color-area);
+}
+
+.sand .employee-single.checked {
+  background-color: var(--color-area);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.sand .employee-single.checked li {
+  color: var(--color-primary);
+  border-left: 1px solid var(--color-primary);
+}
+
+.sand .employee-single:hover {
+  background-color: var(--color-area);
+  border-bottom: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.sand .employee-single:hover ul li {
+  border-left: 1px solid var(--color-primary);
+}
+
+.sand .employee-single ul li {
+  border-left: 1px solid var(--color-area);
+}
+
+.sand .see-and-edit a {
+  background-color: var(--color-white-20);
+  border: 1px solid var(--color-area);
+  color: var(--color-black);
+}
+
+.sand .see-and-edit-btn a:hover {
+  background-color: var(--color-primary);
+}
+
+/* Data 영역 */
+
+.sand .the-employee .employee-info.title {
+  border-bottom: 1px solid var(--color-primary-dark);
+  color: var(--color-primary-dark);
+}
+
+.sand .the-employee .employee-info {
+  color: var(--color-area);
+}
+
+.sand .the-employee .photo {
+  background-color: var(--color-white-10);
+}
+
+.sand .the-employee .name {
+  color: var(--color-area);
+}
+
+.sand .the-employee .family {
+  font-size: 40px;
+}
+
+.sand .the-employee .planet {
+  color: var(--color-area);
+}
+
+.sand .edit-btn a {
+  background-color: var(--color-white-30);
+  border: 1px solid var(--color-hover);
+  color: var(--color-black);
+}
+
+.sand .edit-btn a:hover {
+  background-color: var(--color-area);
+  border: 1px solid var(--color-area);
+  color: var(--color-white-50);
+}
+
+
+/* DataEdit 영역 */
+
+.sand .the-employee .employee-info.edit-title {
+  border-bottom: 1px solid var(--color-primary-dark);
+  color: var(--color-primary-dark);
+}
+
+.sand .the-employee .employee-info {
+  color: var(--color-white-area);
+}
+
+.sand .btn-area .delete-area button {
+  background-color: var(--color-white-30);
+  border: 1px solid var(--color-hover);
+  color: var(--color-black);
+}
+
+.sand .btn-area .delete-area button:hover {
+  background-color: orangered;
+  border: 1px solid orangered;
+  color: var(--color-white);
+}
+
+.sand .btn-area .submit-and-reset-area button {
+  background-color: var(--color-white-30);
+  border: 1px solid var(--color-hover);
+  color: var(--color-black);
+}
+
+.sand .btn-area .submit-and-reset-area button:hover {
+  background-color: var(--color-area);
+  border: 1px solid var(--color-area);
+  color: var(--color-white-50);
+}
+
+/* About 영역 */
+
+.sand .about p {
+  color: var(--color-area);
+}
+
+.sand .about a {
+  color: var(--color-area);
+}
+
+/* Not-Found */
+
+.sand .not-found h1 {
+  color: var(--color-white);
+}
+
+/* Header 영역 */
+
+.sand header {
+  background-color: rgba(244, 164, 96, 0.9);
+}
+
+.sand header .logo {
+  color: var(--color-black);
+}
+
+.sand header .logo span {
+  color: var(--color-black);
+}
+
+.sand header nav ul li a {
+  color: var(--color-white-50);
+  text-decoration: none;
+}
+
+.sand header nav ul li a.active {
+  color: var(--color-black);
+}
+
+.sand header a {
+  color: var(--color-primary);
+}
+
+.sand header .user {
+  background-color: var(--color-area);
+}
+
+.sand footer a {
+  color: var(--color-white-50);
+}
+
+/* 헤드라인 영역 */
+
+.sand .headline .title {
+  color: var(--color-area);
+}
+
+.sand .headline .subtitle {
+  color: var(--color-area);
+}
+
+.sand .headline p {
+  color: var(--color-black);
+}
+
+.sand .search input {
+  color: var(--color-black);
+  background-color: var(--color-white-30);
+}
+
+.sand .search input::placeholder {
+  color: var(--color-area);
+}
+
+/* .sand .btn {
+  color: var(--color-black);
+  background-color: var(--color-primary);
+}
+
+.sand .btn:hover {
+  background-color: var(--color-area);
+  border: 1px solid var(--color-primary);
+} */
+
+.sand .btn-primary {
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+  color: var(--color-black);
+}
+
+.sand .btn-primary:hover {
+  background-color: var(--color-area);
+  border: 1px solid var(--color-area);
+  color: var(--color-white-50);
+}
+
+
+/* 로더 */
+
+.sand .the-loader {
+  border: 4px solid var(--color-area);
+  border-top-color: transparent;
+}
+
+/* 체크박스 영역 */
+.sand input {  
+  accent-color: var(--color-primary-dark);
+}

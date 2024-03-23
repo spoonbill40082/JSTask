@@ -1,0 +1,67 @@
+[
+  {
+    "Id": "em1",
+    "Photo": "https://i.namu.wiki/i/SUhYOR7jf8JVQKmO5Lyla92VM6HDYYcvD6WBCbzxysnu9FzFxSKz2Ik1PLEzeq8Y_j4WmZtpuHAJVx4IAtwSOwxRDgKE0iXBAELEaH6tl3XWzCVqLGsUkL7sQ46trOQEfVosCK4ZOp8EyzkDtP0Xew.webp",
+    "Family": "none",
+    "Name": "Chani Kynes",
+    "Planet": "Arakis",
+    "Division": "Fremen",
+    "Overview": "In Dune, Paul's prescience begins manifesting itself through dreams while he is still living in his ancestral home on the planet Caladan; he sees Chani in these visions, though they have not yet met. Paul and the Atreides come to the desert planet Arrakis, but Paul's father Duke Leto is soon killed by the Harkonnens and Paul and his mother Lady Jessica are forced to flee into the desert. They are reluctantly taken in by a tribe of the planet's native Fremen, and Chani is the Fremen woman put in charge of protecting and guiding Paul. They soon become lovers, and Paul rises as a religious leader among the Fremen, and is called Muad'Dib."
+  },
+  {
+    "Id": "em2",
+    "Photo": "https://i.namu.wiki/i/O6h4qeHvuQnCu1wMVTf6UI4_0QhSgUtcSvJ1y-xzIjI-f_qBFN-kpINjXoGKzRViaDDVKtSvfo96qha5JdKg85xabfT8oJRb_38UL63_WgCmAANs4a0nZd14yBTi5YyDuEPTK7sb85q37MoUfFz-nw.webp",
+    "Family": "Atreides",
+    "Name": "Paul Atreides",
+    "Planet": "Kaladan",
+    "Division": "Royal"
+  },
+  {
+    "Id": "em3",
+    "Photo": "https://i.namu.wiki/i/AhVNpAiijUFezrQMnMUDkB7kecQyPTyVfl5VPVFblSp-px1QEIVvneQKYYLnd_QV3XJnctzWNUFhPCmra0AWVaAZE3T4BlwGAevAqRtQ4KErP1cPicsz_tz9CMex1Dj3aZHh9GCIS4iNTvng1D-Vfw.webp",
+    "Family": "Atreides",
+    "Name": "Gurney Halleck",
+    "Planet": "Kaladan",
+    "Division": "Bard"
+  },
+  {
+    "Id": "em4",
+    "Photo": "https://i.namu.wiki/i/Qm7ioFANicHObO9GAiC-cG_9_cwcUm760Qd7JG07LuuOio5t47kjB0WVUkjhgsBcpJyCc-wKb6iwufh3AmKlP2wb_yLkylz9jODx3sVzQi4xdHtMVHdYZ4lmTi9xZr2kszgZmpchi0-oK1wRigHQgA.webp",
+    "Family": "Harkonnen",
+    "Name": "Glossu Rabban",
+    "Planet": "Giedi Prime",
+    "Division": "Viceroy"
+  },
+  {
+    "Id": "em5",
+    "Photo": "https://i.namu.wiki/i/Y6sczJGhCizf4ehODnURRSqn_irwluFXwnwDcaHHKXHtsIFuxnFah9Pbeqiq0exhuqDoFWOMbeSSJNItzB4Poz6_wdtFXZW1eR8iyVglYH8zafnS55BU3fQojjpeqfLerYuh7hUJvnOWOA1of66QmA.webp",
+    "Family": "Atreides",
+    "Name": "Jessica Atreides",
+    "Planet": "Kaladan",
+    "Division": "Royal"
+  },
+  {
+    "Id": "em6",
+    "Photo": "https://i.namu.wiki/i/sAfl9xowU486Yu5S_y4XKfdhFCAeDpHs7k4lihOJeVNnoOj6J-12RO6ZiY6r5FwDf403S1oFlOLxYJwI9T9_Cg2LfeAtJ2N0X7tPwQ_rOBTZPwnu7ztBOE572urWq01ZF_7_Mm-OnLNcj1Zfk-2s2g.webp",
+    "Family": "none",
+    "Name": "Stilgar",
+    "Planet": "Arakis",
+    "Division": "Fremen"
+  },
+  {
+    "Id": "em7",
+    "Photo": "https://i.namu.wiki/i/GEgFLTFSL7t1n6dWsnyIRPDkkqG1GP_5Y4hKl4_oqTUOQCHhSXlB7-BRGWA35EJ9u5zBKOK0Pa2jdpS8-OkC00R9bvDKtQexw_KYHWyhMhgm4l8p5a0xwe0Ica2Hm9EErXfx3nWRBDDVaWs6Soo7cA.webp",
+    "Family": "Harkonnen",
+    "Name": "Feyd-Rautha Harkonnen",
+    "Planet": "Giedi Prime",
+    "Division": "Viceroy"
+  },
+  {
+    "Id": "",
+    "Photo": "",
+    "Family": "",
+    "Name": "",
+    "Planet": "",
+    "Division": ""
+  }
+]
