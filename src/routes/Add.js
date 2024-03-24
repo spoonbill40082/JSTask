@@ -17,42 +17,42 @@ export default class Add extends Component {
     this.el.innerHTML = /*html*/ `
       <div class="employee-info add-title">Add Profile</div>
         <div class="employee-info add">
-          <textarea id="photoInput-add" placeholder="Photo url"></textarea>
           <textarea id="idInput-add" disabled>${newId}</textarea>
-          <textarea id="nameInput-add" placeholder="Name"></textarea>
-          <textarea id="familyInput-add" placeholder="Family"></textarea>
-          <textarea id="planetInput-add" placeholder="Planet"></textarea>
-          <textarea id="divisionInput-add" placeholder="Division"></textarea>
-          <textarea id="overviewInput-add" placeholder="Overview"></textarea>
+          <textarea id="photoInput-add" placeholder="Copy PHOTO url"></textarea>
+          <textarea id="nameInput-add" placeholder="your NAME"></textarea>
+          <textarea id="familyInput-add" placeholder="your FAMILY"></textarea>
+          <textarea id="planetInput-add" placeholder="PLANET you live on"></textarea>
+          <textarea id="divisionInput-add" placeholder="DIVISION you are working in"></textarea>
+          <textarea id="overviewInput-add" placeholder="OVERVIEW"></textarea>
         </div>
       </div>
       <div class="btn-area">
         <div class="submit-and-reset-area">
-          <button type="submit" class="reset" id="submitBtn-add">Submit</button>
-          <button type="reset" id="resetBtn-add">Reset</button>
           <button id="cancelBtn">Cancel</button>
+          <button type="reset" id="resetBtn-add">Reset</button>
+          <button type="submit" class="reset" id="submitBtn-add">Submit</button>
         </div>
       </div>
     `;
 
-       // textarea 높이 자동 조절     
-       function autoHeight(textarea) {
-        textarea.style.height = 'auto'; // 기본 높이로 설정
-        textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
-      }
+    // textarea 높이 자동 조절     
+    function autoHeight(textarea) {
+      textarea.style.height = 'auto'; // 기본 높이로 설정
+      textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
+    }
 
-      // 모든 textarea 요소에 대해 자동 높이 조절 이벤트를 추가
-      const textareas = document.querySelectorAll('#photoInput-add, #overviewInput-add');
-      textareas.forEach(textarea => {
-        textarea.addEventListener('input', () => {
-          autoHeight(textarea);
-        });
-      });
-
-      // 초기화할 때 모든 textarea에 대해 높이를 조절
-      textareas.forEach(textarea => {
+    // 모든 textarea 요소에 대해 자동 높이 조절 이벤트를 추가
+    const textareas = document.querySelectorAll('#photoInput-add, #overviewInput-add');
+    textareas.forEach(textarea => {
+      textarea.addEventListener('input', () => {
         autoHeight(textarea);
       });
+    });
+
+    // 초기화할 때 모든 textarea에 대해 높이를 조절
+    textareas.forEach(textarea => {
+      autoHeight(textarea);
+    });
 
 
     setTimeout(() => {
@@ -79,9 +79,9 @@ export default class Add extends Component {
         if (confirm('이대로 추가하시겠습니까?')) {
           if (this.tempData) {
             this.addData(this.tempData);
-            
+
             this.tempData = null;
-            
+
             alert('추가 완료!');
             window.location.href = '#/';
             setTimeout(() => {
@@ -94,7 +94,7 @@ export default class Add extends Component {
       // 작성 내용 초기화(새로고침)
       document.getElementById('resetBtn-add').addEventListener('click', () => {
         // 각 input 요소의 값을 빈 문자열로 설정하여 초기화합니다.
-        document.getElementById('photoInput-add').value = "";        
+        document.getElementById('photoInput-add').value = "";
         document.getElementById('nameInput-add').value = "";
         document.getElementById('familyInput-add').value = "";
         document.getElementById('planetInput-add').value = "";
@@ -104,7 +104,10 @@ export default class Add extends Component {
 
       // 취소 버튼 클릭 시 메인 페이지로 이동
       document.getElementById('cancelBtn').addEventListener('click', () => {
-        window.location.href = '#/';
+        if (confirm('취소하시겠습니까?')) {
+          window.location.href = '#/';
+        }
+
       });
     }, 100);
   }

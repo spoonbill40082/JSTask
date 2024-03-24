@@ -446,6 +446,16 @@ input {
 
 
 /* Data add 영역 */
+.employee-info.add-title {
+  margin-bottom: 42px;
+  font-size: 45px;
+  font-weight: 500;
+  color: var(--color-white-30);
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-white-30);
+}
+
 .employee-info.add textarea {
   display: block;
   color: var(--color-white-50);
@@ -464,8 +474,12 @@ input {
   font-family: sans-serif;
 }
 
+.add .btn-area {
+justify-content: end;
+}
 
 
+/* About 영역 */
 
 .about .photo {
   width: 300px;

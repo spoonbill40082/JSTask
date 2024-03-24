@@ -64,8 +64,8 @@ export default class DataEdit extends Component {
               <button class="delete" id="deleteBtn">Delete</button>
             </div>
             <div class="submit-and-reset-area">
-              <button type="submit" class="reset" id="submitBtn">Submit</button>
               <button type="reset" id="resetBtn">Reset</button >
+              <button type="submit" class="reset" id="submitBtn">Submit</button>
             </div>
           </div>
         `;
@@ -114,24 +114,13 @@ export default class DataEdit extends Component {
           if (confirm('이대로 수정하시겠습니까?')) {
             if (this.tempData) {
               dbService.updateMovie(this.tempData);
-        
-              // 로컬 스토리지에 있는 모든 데이터에 대해 수정된 내용 반영
-              const allEmployeeData = dbService.getAllEmployeeData();
-              allEmployeeData.forEach((data, index) => {
-                if (data.Id === this.tempData.Id) {
-                  dbService.employeeData[index] = this.tempData;
-                  localStorage.setItem(this.tempData.Id, JSON.stringify(this.tempData));
-                }
-              });
-        
-              this.tempData = null;
+              this.tempData = null
             }
-            alert('수정 완료!');
+            alert('수정 완료!')
             window.location.reload();
           }
+
         });
-        
-        
 
         // 삭제 후 첫 페이지로
         document.getElementById('deleteBtn').addEventListener('click', () => {

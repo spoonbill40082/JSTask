@@ -159,6 +159,20 @@ html {
   color: var(--color-white-50);
 }
 
+
+/* Add 영역 */
+
+.sand .employee-info.add-title {
+  border-bottom: 1px solid var(--color-primary-dark);
+  color: var(--color-primary-dark);
+}
+
+.sand .employee-info.add textarea {
+  color: var(--color-area);
+  border-bottom: 1px solid var(--color-primary-dark);
+}
+
+
 /* About 영역 */
 
 .sand .about p {
