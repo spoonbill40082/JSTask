@@ -3,24 +3,22 @@ import sampleEmployeeData from "./employeeData.json";
 import dayjs from "dayjs";
 /**
  * @desecription 데이터베이스에 데이터가 존재하지 않으면 최초 제이슨 파일로부터 데이터를 초기화한다.
- * @data employeeData.json
+ * @data sampleEmployeeData.json
  */
 const initialize = () => {
   const dataInLocalstorage = localStorage.getItem("data");
 
-  if (dataInLocalstorage) {
-    return;
-  } else {
-    const allEmployeeData = sampleEmployeeData;
-    allEmployeeData.sort((a, b) => {
-      const dateA = dayjs(a.CreateDate, "YYYY-MM-DD HH:mm:ss");
-      const dateB = dayjs(b.CreateDate, "YYYY-MM-DD HH:mm:ss");
+  if (dataInLocalstorage) return;
 
-      return dateB.diff(dateA);
-    });
+  const allEmployeeData = sampleEmployeeData;
+  allEmployeeData.sort((a, b) => {
+    const dateA = dayjs(a.CreateDate, "YYYY-MM-DD HH:mm:ss");
+    const dateB = dayjs(b.CreateDate, "YYYY-MM-DD HH:mm:ss");
 
-    localStorage.setItem("data", JSON.stringify(allEmployeeData));
-  }
+    return dateB.diff(dateA);
+  });
+
+  localStorage.setItem("data", JSON.stringify(allEmployeeData));
 };
 
 /**
@@ -33,11 +31,11 @@ export const dbService = {
     if (!rawDb) throw Error("db data is not exists");
     return JSON.parse(rawDb);
   },
-  addData: (movie) => {
-    const movies = dbService.getAll();
-    const movieItem = { ...movie, Id: `em${movies[movies.length + 1]}` };
-    const newMovies = movies.concat(movieItem);
-    dbService.persist(newMovies);
+  addData: (newEmployee) => {
+    console.log(newEmployee);
+    const newEmployeeList = store.state.employees.concat(newEmployee);
+    store.state.employees = newEmployeeList;
+    dbService.persist(newEmployeeList);
   },
   getById: (id) => {
     return dbService.getAll().find((movie) => movie.Id === id);
@@ -70,12 +68,26 @@ export const dbService = {
   persist: (movies) => {
     localStorage.setItem("data", JSON.stringify(movies));
   },
-  updateMovie: (movie) => {
-    const movies = dbService.getAll();
-    const index = movies.findIndex((movie) => movie.Id === movie.Id);
-    if (index == -1) throw Error("Can't find Movie Data");
-    movies[index] = movie;
-    dbService.persist(movies);
+  updateEmployee: (selectedEmployee) => {
+    if (store.state.employee.Id !== selectedEmployee.Id)
+      throw Error("Employee Id is not matched.");
+    store.state.employee = selectedEmployee;
+    const _employeeData = store.state.employees;
+    const index = _employeeData.findIndex(
+      (employee) => employee.Id === selectedEmployee.Id
+    );
+    _employeeData[index] = selectedEmployee;
+    dbService.persist(_employeeData);
+  },
+  setEmployeeById: (employeeId) => {
+    store.state.employee = dbService.getById(employeeId);
+
+    console.log("Family", store.state.employee.Family);
+  },
+  clearEmployee: () => (store.state.employee = {}),
+  addEmployee: (employee) => {
+    const newEmployeeList = store.state.employees.concat(employee);
+    dbService.persist(newEmployeeList);
   },
 };
 
@@ -99,9 +111,9 @@ export const searchEmployees = () => {
 
   const callback = async () => {
     try {
-      if (!employeeData) {
-        throw new Error("Employee data not found.");
-      }
+      // if (!sampleEmployeeData) {
+      //   throw new Error("Employee data not found.");
+      // }
       initialize();
       const searchKeyword = store.state.searchText;
       const noSearch = searchKeyword.trim() === "";
@@ -113,7 +125,7 @@ export const searchEmployees = () => {
       }
 
       // 검색 결과를 employeeData에 설정
-      employeeData.state.employees = searchResult;
+      store.state.employees = searchResult;
 
       // 로딩 상태 변경
       store.state.loading = false;
