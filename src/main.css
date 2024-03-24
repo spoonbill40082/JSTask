@@ -330,12 +330,12 @@ input {
   display: block;
   color: var(--color-white-50);
   width: 100%;
-  height: 25px;
-  padding: 5px 0 5px 7px;
+  height: 30px;
+  padding: 5px 0 5px 5px;
   background-color: transparent;
   font-size: 1em;
   line-height: 1.4;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   resize: none;
   border: none;
   overflow: hidden;
@@ -443,6 +443,29 @@ input {
     margin-top: 50px;
   }
 }
+
+
+/* Data add 영역 */
+.employee-info.add textarea {
+  display: block;
+  color: var(--color-white-50);
+  width: 100%;
+  height: 30px;
+  padding: 5px 0 5px 5px;
+  background-color: transparent;
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  resize: none;
+  border: none;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-white-20);
+  border-radius: 3px;
+  font-family: sans-serif;
+}
+
+
+
 
 .about .photo {
   width: 300px;

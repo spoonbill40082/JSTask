@@ -29,10 +29,10 @@ export default class DataEdit extends Component {
         this.el.innerHTML = /*html*/ `
           <div class="employee-info edit-title">Edit Profile</div>
           <div class="edit-area">
-
             <div class="write-area">    
               <div class="edit-subtitle">Edit</div>
               <div class="inputs">
+                <textarea id="idInput" disabled>${employeeData.Id}</textarea>
                 <textarea id="photoInput">${savedData.Photo || employeeData.Photo}</textarea>
                 <textarea id="nameInput">${savedData.Name || employeeData.Name}</textarea>
                 <textarea id="familyInput">${savedData.Family || employeeData.Family}</textarea>
@@ -72,11 +72,10 @@ export default class DataEdit extends Component {
 
 
 
-        // 입력된 내용을 임시 저장하는 함수
         const saveNewData = () => {
           this.tempData = {
             Id: employeeData.Id,
-            Photo: employeeData.Photo,
+            Photo: document.getElementById('photoInput').value,
             Name: document.getElementById('nameInput').value,
             Family: document.getElementById('familyInput').value,
             Planet: document.getElementById('planetInput').value,
@@ -85,8 +84,7 @@ export default class DataEdit extends Component {
           };
         };
 
-        // textarea 높이 자동 조절
-        // textarea 요소의 높이를 자동으로 조절하는 함수
+        // textarea 높이 자동 조절     
         function autoHeight(textarea) {
           textarea.style.height = 'auto'; // 기본 높이로 설정
           textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
@@ -106,7 +104,7 @@ export default class DataEdit extends Component {
         });
 
         // input 요소에 change 이벤트 추가하여 내용이 변경될 때마다 임시 데이터 저장
-        const changeData = document.querySelectorAll('input[type="text"], textarea');
+        const changeData = document.querySelectorAll('textarea');
         changeData.forEach(changeData => {
           changeData.addEventListener('change', saveNewData);
         });
@@ -116,13 +114,24 @@ export default class DataEdit extends Component {
           if (confirm('이대로 수정하시겠습니까?')) {
             if (this.tempData) {
               dbService.updateMovie(this.tempData);
-              this.tempData = null
+        
+              // 로컬 스토리지에 있는 모든 데이터에 대해 수정된 내용 반영
+              const allEmployeeData = dbService.getAllEmployeeData();
+              allEmployeeData.forEach((data, index) => {
+                if (data.Id === this.tempData.Id) {
+                  dbService.employeeData[index] = this.tempData;
+                  localStorage.setItem(this.tempData.Id, JSON.stringify(this.tempData));
+                }
+              });
+        
+              this.tempData = null;
             }
-            alert('수정 완료!')
+            alert('수정 완료!');
             window.location.reload();
           }
-
         });
+        
+        
 
         // 삭제 후 첫 페이지로
         document.getElementById('deleteBtn').addEventListener('click', () => {
@@ -136,7 +145,7 @@ export default class DataEdit extends Component {
           }
         });
 
-
+        
         // 페이지 새로고침(F5, 새로고침 클릭) 시 작성한 내용 초기화
         window.addEventListener('beforeunload', () => {
           this.tempData = null;
@@ -145,7 +154,7 @@ export default class DataEdit extends Component {
         //작성 내용 초기화
         document.getElementById('resetBtn').addEventListener('click', () => {
           const savedData = JSON.parse(localStorage.getItem(employeeData.Id)) || {};
-
+          document.getElementById('photoInput').value = savedData.Photo || employeeData.Photo;
           document.getElementById('nameInput').value = savedData.Name || employeeData.Name;
           document.getElementById('familyInput').value = savedData.Family || employeeData.Family;
           document.getElementById('planetInput').value = savedData.Planet || employeeData.Planet;
@@ -153,6 +162,8 @@ export default class DataEdit extends Component {
           document.getElementById('overviewInput').value = savedData.Overview || employeeData.Overview;
         });
 
+
+        
       } else {
         console.log('뭔가 문제가 있어...');
       }

@@ -116,6 +116,16 @@ html {
 
 /* DataEdit 영역 */
 
+
+.sand .edit-area .write-area::after {
+  border: 1px solid var(--color-primary-dark);
+}
+
+.sand .edit-area .write-area textarea {
+  color: var(--color-area);
+  border-bottom: 1px solid var(--color-primary-dark);
+}
+
 .sand .the-employee .employee-info.edit-title {
   border-bottom: 1px solid var(--color-primary-dark);
   color: var(--color-primary-dark);
@@ -184,7 +194,7 @@ html {
   text-decoration: none;
 }
 
-.sand header nav ul li:last-child a {  
+.sand header nav ul li:last-child a {
   background-color: var(--color-white-30);
   color: var(--color-white-50);
 }
@@ -259,6 +269,6 @@ html {
 }
 
 /* 체크박스 영역 */
-.sand input {  
+.sand input {
   accent-color: var(--color-primary-dark);
 }
