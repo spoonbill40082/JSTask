@@ -65,7 +65,7 @@ export default class DataEdit extends Component {
             </div>
             <div class="submit-and-reset-area">
               <button type="reset" id="resetBtn">Reset</button >
-              <button type="submit" class="reset" id="submitBtn">Submit</button>
+              <button type="submit" id="submitBtn">Submit</button>
             </div>
           </div>
         `;
@@ -84,43 +84,30 @@ export default class DataEdit extends Component {
           };
         };
 
-        // textarea 높이 자동 조절     
-        function autoHeight(textarea) {
-          textarea.style.height = 'auto'; // 기본 높이로 설정
-          textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
-        }
+        
 
-        // 모든 textarea 요소에 대해 자동 높이 조절 이벤트를 추가
-        const textareas = document.querySelectorAll('#photoInput, #overviewInput');
-        textareas.forEach(textarea => {
-          textarea.addEventListener('input', () => {
-            autoHeight(textarea);
-          });
-        });
-
-        // 초기화할 때 모든 textarea에 대해 높이를 조절
-        textareas.forEach(textarea => {
-          autoHeight(textarea);
-        });
-
-        // input 요소에 change 이벤트 추가하여 내용이 변경될 때마다 임시 데이터 저장
-        const changeData = document.querySelectorAll('textarea');
-        changeData.forEach(changeData => {
-          changeData.addEventListener('change', saveNewData);
-        });
-
-        // Submit 버튼 클릭 시 임시 데이터를 로컬 스토리지에 저장 후 페이지 새로고침
         document.getElementById('submitBtn').addEventListener('click', () => {
           if (confirm('이대로 수정하시겠습니까?')) {
             if (this.tempData) {
               dbService.updateMovie(this.tempData);
-              this.tempData = null
+        
+              // 로컬 스토리지에 있는 모든 데이터에 대해 수정된 내용 반영
+              const allEmployeeData = dbService.getAllEmployeeData();
+              allEmployeeData.forEach((data, index) => {
+                if (data.Id === this.tempData.Id) {
+                  dbService.employeeData[index] = this.tempData;
+                  localStorage.setItem(this.tempData.Id, JSON.stringify(this.tempData));
+                }
+              });
+        
+              this.tempData = null;
             }
-            alert('수정 완료!')
+            alert('수정 완료!');
             window.location.reload();
           }
-
         });
+        
+        
 
         // 삭제 후 첫 페이지로
         document.getElementById('deleteBtn').addEventListener('click', () => {
@@ -143,6 +130,7 @@ export default class DataEdit extends Component {
         //작성 내용 초기화
         document.getElementById('resetBtn').addEventListener('click', () => {
           const savedData = JSON.parse(localStorage.getItem(employeeData.Id)) || {};
+
           document.getElementById('photoInput').value = savedData.Photo || employeeData.Photo;
           document.getElementById('nameInput').value = savedData.Name || employeeData.Name;
           document.getElementById('familyInput').value = savedData.Family || employeeData.Family;
@@ -152,6 +140,24 @@ export default class DataEdit extends Component {
         });
 
 
+        // textarea 높이 자동 조절     
+        function autoHeight(textarea) {
+          textarea.style.height = 'auto'; // 기본 높이로 설정
+          textarea.style.height = textarea.scrollHeight + 'px'; // scrollHeight로 내용의 높이를 계산하여 설정
+        }
+
+        // 모든 textarea 요소에 대해 자동 높이 조절 이벤트를 추가
+        const textareas = document.querySelectorAll('#photoInput, #overviewInput');
+        textareas.forEach(textarea => {
+          textarea.addEventListener('input', () => {
+            autoHeight(textarea);
+          });
+        });
+
+        // 초기화할 때 모든 textarea에 대해 높이를 조절
+        textareas.forEach(textarea => {
+          autoHeight(textarea);
+        });
         
       } else {
         console.log('뭔가 문제가 있어...');

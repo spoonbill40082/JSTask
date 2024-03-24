@@ -6,6 +6,14 @@ import employeeData from "./employeeData.json";
  * @desecription 데이터베이스에 데이터가 존재하지 않으면 최초 제이슨 파일로부터 데이터를 초기화한다.
  * @data employeeData.json
  */
+// const initialize = () => {
+//   const db = localStorage.getItem("data");
+//   console.log()
+//   if (db) return;
+//   const allEmployeeData = JSON.parse(employeeData);
+//   allEmployeeData.sort((a, b) => new Date(b.CreateDate) - new Date(a.CreateDate));
+//   localStorage.setItem('employeeData', JSON.stringify(allEmployeeData));
+// };
 const initialize = () => {
   const db = localStorage.getItem("data");
   if (db) return;

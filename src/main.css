@@ -21,6 +21,7 @@ html {
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimGodeunjemokB.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  unicode-range: U+AC00-D7A3;
 }
 
 
@@ -272,10 +273,6 @@ input {
   border: 1px solid var(--color-white-50);
   color: var(--color-black);
 }
-
-
-
-
 
 
 /* DataEdit 영역 */
