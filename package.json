@@ -15,6 +15,7 @@
     "vercel": "^33.6.1"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
     "node-fetch": "^2.7.0"
   },
   "description": ""
